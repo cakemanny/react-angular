@@ -11,7 +11,7 @@ export const GreeterComponent = {
   template: `
     <react-component
       component="$ctrl.reactComponent"
-      name="{{$ctrl.name}}"
+      name="$ctrl.name"
     />
   `
 };

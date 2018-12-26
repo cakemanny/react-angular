@@ -22,15 +22,16 @@ export const ReactDirective = function() {
     }
 
     Object.keys(attrValues).forEach(key => {
-      attrs.$observe(key, function(value) {
-        console.log("$observe", { key, value });
+      const prop = attrs[key];
+      scope.$watch(prop, function(value) {
+        console.log("$watch", { key, prop, value });
         attrValues[key] = value;
         remount();
       });
     });
 
     scope.$watch(attrs.component, function(value) {
-      console.log("$watch", { prop: attrs.component, value });
+      console.log("$watch", { key: "component", prop: attrs.component, value });
       component = value;
       remount();
     });
